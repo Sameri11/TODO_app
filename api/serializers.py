@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from todos.models import Tasks
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -19,3 +20,20 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class CreateTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tasks
+        fields = [
+            'user_id',
+            'task_name',
+            'task_description'
+            # 'task_priority',
+            # 'task_status'
+        ]
+
+    """def _user(self, obj):
+        request = getattr(self.context, 'request', None)
+        if request:
+            return request.user"""
