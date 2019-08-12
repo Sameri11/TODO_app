@@ -17,7 +17,7 @@ class Tasks(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     task_name = models.CharField(max_length=100)
-    task_description = models.CharField(max_length=100, blank=True)
+    task_description = models.CharField(max_length=100, blank=True, default='')
     task_priority = models.IntegerField(choices=PRIORITY_CHOICE, default=2)
     task_status = models.IntegerField(choices=STATUS_CHOICE, default=1)
 

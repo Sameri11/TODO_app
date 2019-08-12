@@ -22,10 +22,11 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class CreateTaskSerializer(serializers.ModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tasks
         fields = [
+            'id',
             'user_id',
             'task_name',
             'task_description',
@@ -33,6 +34,8 @@ class CreateTaskSerializer(serializers.ModelSerializer):
             'task_status'
         ]
         extra_kwargs = {
+            "task_description": {"required": False},
             "task_priority": {"required": False},
-            "task_status": {"required": False}
+            "task_status": {"required": False},
+            "id": {"required": False},
         }
