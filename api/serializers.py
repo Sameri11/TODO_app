@@ -28,12 +28,11 @@ class CreateTaskSerializer(serializers.ModelSerializer):
         fields = [
             'user_id',
             'task_name',
-            'task_description'
-            # 'task_priority',
-            # 'task_status'
+            'task_description',
+            'task_priority',
+            'task_status'
         ]
-
-    """def _user(self, obj):
-        request = getattr(self.context, 'request', None)
-        if request:
-            return request.user"""
+        extra_kwargs = {
+            "task_priority": {"required": False},
+            "task_status": {"required": False}
+        }
