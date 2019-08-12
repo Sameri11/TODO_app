@@ -108,7 +108,6 @@ class UpdateTaskTestCase(APITestCase):
         response = self.client.patch(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIsNotNone(Tasks.objects.get(task_name='TODO-new'))
-        self
 
 
 
