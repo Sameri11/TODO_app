@@ -100,6 +100,7 @@ class UpdateTaskTestCase(APITestCase):
         token = self.get_tokens_for_user(user)['access']
         Tasks.objects.create(user=user, task_name='TODO')
         url = 'http://127.0.0.1:8000/api/v1/task/updated/2'
+
         data = {
             'task_name': 'TODO-new'
         }
