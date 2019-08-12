@@ -15,6 +15,6 @@ urlpatterns = [
          TaskListView.as_view(), name='task_list_filtered'),
     path('task/list/admin/', AdminTaskListView.as_view(), 
          name='admin_task_list'),
-    path('task/list/destroyed/<int:pk>/', DeleteTaskView.as_view(), 
+    path('task/destroyed/<int:pk>/', DeleteTaskView.as_view(), 
          name='destroyed_task')
 ]
