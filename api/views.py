@@ -48,12 +48,16 @@ class TaskListView(ListAPIView):
     def get_queryset(self):
         if not self.kwargs:
             return Tasks.objects.filter(user=self.request.user)
-        elif self.kwargs['status']:
+        elif self.kwargs['status'] and not self.kwargs['priority']:
             return Tasks.objects.filter(user=self.request.user,
                                         task_status=self.kwargs['status'])
-        elif self.kwargs['priority']:
+        elif self.kwargs['priority'] and not self.kwargs['status']:
             return Tasks.objects.filter(user=self.request.user,
                                         task_priority=self.kwargs['priority'])
+        elif self.kwargs['status'] and self.kwargs['priority']:
+            return Tasks.objects.filter(user=self.request.user).filter(
+                    task_status=self.kwargs['status'], 
+                    task_priority=self.kwargs['priority'])
 
 
 class AdminTaskListView(ListAPIView):
