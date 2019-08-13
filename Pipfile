@@ -18,6 +18,8 @@ django-heroku = "*"
 dj-database-url = "*"
 whitenoise = "*"
 drfdocs = "*"
+pyyaml = "*"
+uritemplate = "*"
 
 [requires]
 python_version = "3.7"

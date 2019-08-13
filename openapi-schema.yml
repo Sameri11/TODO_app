@@ -1,0 +1,491 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: TODO
+paths:
+  /api/v1/tasks/list/:
+    get:
+      operationId: ListTasks
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+  /api/v1/tasks/list/filter/{status}/{priority}/:
+    get:
+      operationId: RetrieveTask
+      parameters:
+      - name: status
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: priority
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+  /api/v1/tasks/list/admin/:
+    get:
+      operationId: ListTasks
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+  /api/v1/register/:
+    post:
+      operationId: CreateUser
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                password:
+                  type: string
+                  maxLength: 128
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+                first_name:
+                  type: string
+                  maxLength: 30
+                last_name:
+                  type: string
+                  maxLength: 150
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - username
+                - password
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  password:
+                    type: string
+                    maxLength: 128
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                  first_name:
+                    type: string
+                    maxLength: 30
+                  last_name:
+                    type: string
+                    maxLength: 150
+  /api/v1/token/:
+    post:
+      operationId: CreateTokenObtainPair
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                  writeOnly: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - username
+                properties:
+                  username:
+                    type: string
+  /api/v1/token/refresh/:
+    post:
+      operationId: CreateTokenRefresh
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - refresh
+              properties:
+                refresh:
+                  type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - refresh
+                properties:
+                  refresh:
+                    type: string
+  /api/v1/tasks/new/:
+    post:
+      operationId: CreateTask
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - task_name
+              properties:
+                task_name:
+                  type: string
+                  maxLength: 100
+                task_description:
+                  type: string
+                  maxLength: 100
+                task_priority:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+                task_status:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+  /api/v1/tasks/updated/{id}:
+    put:
+      operationId: UpdateTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - task_name
+              properties:
+                task_name:
+                  type: string
+                  maxLength: 100
+                task_description:
+                  type: string
+                  maxLength: 100
+                task_priority:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+                task_status:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+    patch:
+      operationId: PartialUpdateTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                task_name:
+                  type: string
+                  maxLength: 100
+                task_description:
+                  type: string
+                  maxLength: 100
+                task_priority:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+                task_status:
+                  enum:
+                  - 1
+                  - 2
+                  - 3
+                  minimum: -2147483648
+                  maximum: 2147483647
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+  /api/v1/tasks/destroyed/{id}/:
+    delete:
+      operationId: DestroyTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                required:
+                - task_name
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  user_id:
+                    type: string
+                    readOnly: true
+                  task_name:
+                    type: string
+                    maxLength: 100
+                  task_description:
+                    type: string
+                    maxLength: 100
+                  task_priority:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
+                  task_status:
+                    enum:
+                    - 1
+                    - 2
+                    - 3
+                    minimum: -2147483648
+                    maximum: 2147483647
