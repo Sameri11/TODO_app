@@ -31,7 +31,8 @@ See documentation for details on making requests!
 # How to filter tasks?
 
 This part needs upgrade, but it works
-- url: /api/v1/tasks/list/filter/(status)/(priority)
+
+    url: /api/v1/tasks/list/filter/(status)/(priority)
 
     Priority:
     0 - Does not filter by this criteria
