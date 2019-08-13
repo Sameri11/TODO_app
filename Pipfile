@@ -13,6 +13,10 @@ psycopg2-binary = "==2.8.3"
 psycopg2 = "==2.8.3"
 django-rest-framework = "*"
 djangorestframework-simplejwt = "*"
+gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
