@@ -58,14 +58,6 @@ class TokenTestCase(APITestCase):
 
 
 class CreateTaskTestCase(APITestCase):
-    def get_tokens_for_user(self, user):
-        refresh = RefreshToken.for_user(user)
-    
-        return {
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }
-
     def test_not_authenticated(self):
         url = reverse('new_task')
         data = {'1': 1}
@@ -75,7 +67,7 @@ class CreateTaskTestCase(APITestCase):
     def test_authenticated(self):
         User.objects.create_user('skij', 'adf@ru.ru', '123456')
         user = User.objects.get(pk=1)
-        token = self.get_tokens_for_user(user)['access']
+        token = get_tokens_for_user(self, user)['access']
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         url = reverse('new_task')
         data = {
@@ -86,19 +78,12 @@ class CreateTaskTestCase(APITestCase):
 
 
 class UpdateTaskTestCase(APITestCase):
-    def get_tokens_for_user(self, user):
-        refresh = RefreshToken.for_user(user)
-    
-        return {
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-        }
-
     def test_not_authenticated(self):
         User.objects.create_user('skij', 'adf@ru.ru', '123456')
         user = User.objects.get(username='skij')
         Tasks.objects.create(user=user, task_name='TODO')
-        url = 'http://127.0.0.1:8000/api/v1/task/updated/1'
+        pk = Tasks.objects.get(task_name='TODO').pk
+        url = 'http://127.0.0.1:8000/api/v1/task/updated/' + str(pk)
         data = {'1': 1}
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
@@ -106,10 +91,10 @@ class UpdateTaskTestCase(APITestCase):
     def test_authenticated(self):
         User.objects.create_user('skil', 'adf@ru.ru', '123456')
         user = User.objects.get(username='skil')
-        token = self.get_tokens_for_user(user)['access']
+        token = get_tokens_for_user(self, user)['access']
         Tasks.objects.create(user=user, task_name='TODO')
-        url = 'http://127.0.0.1:8000/api/v1/task/updated/4'
-
+        pk = Tasks.objects.get(task_name='TODO').pk
+        url = 'http://127.0.0.1:8000/api/v1/task/updated/' + str(pk)
         data = {
             'task_name': 'TODO-new'
         }
@@ -137,9 +122,44 @@ class ListViewTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
-
-
+class AdminListViewTestCase(APITestCase):
+    def test_not_authenticated(self):
+        url = reverse('admin_task_list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
     
+    def test_authenticated(self):
+        User.objects.create_superuser('admin', 'admin@admin.com', '123456')
+        user = User.objects.get(username='admin')
+        token = get_tokens_for_user(self, user=user)['access']
+        url = reverse('admin_task_list')
+        Tasks.objects.create(user=user, task_name='TODO')
+        Tasks.objects.create(user=user, task_name='TODOMS')
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
+class DeleteTaskViewTestCase(APITestCase):
+    def test_not_authenticated(self):
+        User.objects.create_user('skp', 'adf@ru.ru', '123456')
+        user = User.objects.get(username='skp')
+        Tasks.objects.create(user=user, task_name='TODO')
+        pk = Tasks.objects.get(task_name='TODO').pk
+        url = 'http://127.0.0.1:8000/api/v1/task/destroyed/' + str(pk) + '/'
+        data = {'id': pk}
+        response = self.client.delete(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_authenticated(self):
+        User.objects.create_user('skp', 'adf@ru.ru', '123456')
+        user = User.objects.get(username='skp')
+        token = get_tokens_for_user(self, user=user)['access']
+        Tasks.objects.create(user=user, task_name='TODO')
+        pk = Tasks.objects.get(task_name='TODO').pk
+        url = 'http://127.0.0.1:8000/api/v1/task/destroyed/' + str(pk) + '/'
+        data = {'id': pk}
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
+        response = self.client.delete(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 # Create your tests here.
