@@ -121,13 +121,27 @@ class ListViewTestCase(APITestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_filter(self):
+        User.objects.create_user('ski', 'adf@ru.ru', '123456')
+        user = User.objects.get(username='ski')
+        token = get_tokens_for_user(self, user=user)['access']
+        url = 'http://127.0.0.1:8000/api/v1/tasks/list/filter/3/3/'
+        Tasks.objects.create(
+                            user=user,
+                            task_name='TODO',
+                            task_status=3,
+                            task_priority=3)
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
 
 class AdminListViewTestCase(APITestCase):
     def test_not_authenticated(self):
         url = reverse('admin_task_list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-    
+  
     def test_authenticated(self):
         User.objects.create_superuser('admin', 'admin@admin.com', '123456')
         user = User.objects.get(username='admin')
