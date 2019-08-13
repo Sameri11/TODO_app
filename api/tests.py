@@ -83,7 +83,7 @@ class UpdateTaskTestCase(APITestCase):
         user = User.objects.get(username='skij')
         Tasks.objects.create(user=user, task_name='TODO')
         pk = Tasks.objects.get(task_name='TODO').pk
-        url = 'http://127.0.0.1:8000/api/v1/task/updated/' + str(pk)
+        url = 'http://127.0.0.1:8000/api/v1/tasks/updated/' + str(pk)
         data = {'1': 1}
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
@@ -94,7 +94,7 @@ class UpdateTaskTestCase(APITestCase):
         token = get_tokens_for_user(self, user)['access']
         Tasks.objects.create(user=user, task_name='TODO')
         pk = Tasks.objects.get(task_name='TODO').pk
-        url = 'http://127.0.0.1:8000/api/v1/task/updated/' + str(pk)
+        url = 'http://127.0.0.1:8000/api/v1/tasks/updated/' + str(pk)
         data = {
             'task_name': 'TODO-new'
         }
@@ -146,7 +146,7 @@ class DeleteTaskViewTestCase(APITestCase):
         user = User.objects.get(username='skp')
         Tasks.objects.create(user=user, task_name='TODO')
         pk = Tasks.objects.get(task_name='TODO').pk
-        url = 'http://127.0.0.1:8000/api/v1/task/destroyed/' + str(pk) + '/'
+        url = 'http://127.0.0.1:8000/api/v1/tasks/destroyed/' + str(pk) + '/'
         data = {'id': pk}
         response = self.client.delete(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
@@ -157,7 +157,7 @@ class DeleteTaskViewTestCase(APITestCase):
         token = get_tokens_for_user(self, user=user)['access']
         Tasks.objects.create(user=user, task_name='TODO')
         pk = Tasks.objects.get(task_name='TODO').pk
-        url = 'http://127.0.0.1:8000/api/v1/task/destroyed/' + str(pk) + '/'
+        url = 'http://127.0.0.1:8000/api/v1/tasks/destroyed/' + str(pk) + '/'
         data = {'id': pk}
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         response = self.client.delete(url, data, format='json')
