@@ -16,10 +16,10 @@ class Tasks(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    task_name = models.CharField(max_length=100)
-    task_description = models.CharField(max_length=100, blank=True, default='')
-    task_priority = models.IntegerField(choices=PRIORITY_CHOICE, default=2)
-    task_status = models.IntegerField(choices=STATUS_CHOICE, default=1)
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, blank=True, default='')
+    priority = models.IntegerField(choices=PRIORITY_CHOICE, default=2)
+    status = models.IntegerField(choices=STATUS_CHOICE, default=1)
 
     def __str__(self):
-        return str(self.task_name)
+        return str(self.name)

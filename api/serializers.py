@@ -6,19 +6,18 @@ from todos.models import Tasks
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'email', 'first_name', 'last_name')
-        write_only_fields = ('password',)
-        read_only_fields = ('id',)
+        fields = ('id', 'username', 'password', 'email', 'first_name',
+                  'last_name')
+        extra_kwargs = {
+            "email": {"required": False},
+            "first_name": {"required": False},
+            "last_name": {"required": False},
+            "id": {"read_only": True},
+            "password": {"write_only": True}
+        }
 
     def create(self, validated_data):
-        user = User.objects.create(
-            username=validated_data['username'],
-            email=validated_data['email'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name']
-        )
-        user.set_password(validated_data['password'])
-        user.save()
+        user = User.objects.create_user(**validated_data)
         return user
 
 
@@ -28,14 +27,14 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'user_id',
-            'task_name',
-            'task_description',
-            'task_priority',
-            'task_status'
+            'title',
+            'description',
+            'priority',
+            'status'
         ]
         extra_kwargs = {
-            "task_description": {"required": False},
-            "task_priority": {"required": False},
-            "task_status": {"required": False},
+            "description": {"required": False},
+            "priority": {"required": False},
+            "status": {"required": False},
             "id": {"required": False},
         }
