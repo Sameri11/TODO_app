@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>TODO_api made by Sameri11</title>
+  <title>Swagger Sample</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -690,6 +690,80 @@
     // Script section to load models into a JS Var
     var defs = {}
             defs.body = {
+  "required" : [ "title" ],
+  "properties" : {
+    "title" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "description" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "priority" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    },
+    "status" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    }
+  }
+};
+            defs.body_1 = {
+  "required" : [ "title" ],
+  "properties" : {
+    "title" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "description" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "priority" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    },
+    "status" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    }
+  }
+};
+            defs.body_2 = {
+  "properties" : {
+    "title" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "description" : {
+      "maxLength" : 100,
+      "type" : "string"
+    },
+    "priority" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    },
+    "status" : {
+      "maximum" : 2147483647,
+      "minimum" : -2147483648,
+      "type" : "number",
+      "enum" : [ 1, 2, 3 ]
+    }
+  }
+};
+            defs.body_3 = {
   "required" : [ "password", "username" ],
   "properties" : {
     "username" : {
@@ -700,7 +774,8 @@
     },
     "password" : {
       "maxLength" : 128,
-      "type" : "string"
+      "type" : "string",
+      "writeOnly" : true
     },
     "email" : {
       "maxLength" : 254,
@@ -717,7 +792,7 @@
     }
   }
 };
-            defs.body_1 = {
+            defs.body_4 = {
   "required" : [ "password", "username" ],
   "properties" : {
     "username" : {
@@ -729,85 +804,11 @@
     }
   }
 };
-            defs.body_2 = {
+            defs.body_5 = {
   "required" : [ "refresh" ],
   "properties" : {
     "refresh" : {
       "type" : "string"
-    }
-  }
-};
-            defs.body_3 = {
-  "required" : [ "task_name" ],
-  "properties" : {
-    "task_name" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_description" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_priority" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
-    },
-    "task_status" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
-    }
-  }
-};
-            defs.body_4 = {
-  "required" : [ "task_name" ],
-  "properties" : {
-    "task_name" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_description" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_priority" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
-    },
-    "task_status" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
-    }
-  }
-};
-            defs.body_5 = {
-  "properties" : {
-    "task_name" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_description" : {
-      "maxLength" : 100,
-      "type" : "string"
-    },
-    "task_priority" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
-    },
-    "task_status" : {
-      "maximum" : 2147483647,
-      "minimum" : -2147483648,
-      "type" : "number",
-      "enum" : [ 1, 2, 3 ]
     }
   }
 };
@@ -846,14 +847,14 @@
                     <li data-group="Default" data-name="listTasks" class="">
                       <a href="#api-Default-listTasks">listTasks</a>
                     </li>
-                    <li data-group="Default" data-name="listTasksAdmin" class="">
-                      <a href="#api-Default-listTasksAdmin">listTasksAdmin</a>
-                    </li>
-                    <li data-group="Default" data-name="listTasksFiltered" class="">
-                      <a href="#api-Default-listTasksFiltered">listTasksFiltered</a>
+                    <li data-group="Default" data-name="listTasks_1" class="">
+                      <a href="#api-Default-listTasks_1">listTasks_1</a>
                     </li>
                     <li data-group="Default" data-name="partialUpdateTask" class="">
                       <a href="#api-Default-partialUpdateTask">partialUpdateTask</a>
+                    </li>
+                    <li data-group="Default" data-name="retrieveTask" class="">
+                      <a href="#api-Default-retrieveTask">retrieveTask</a>
                     </li>
                     <li data-group="Default" data-name="updateTask" class="">
                       <a href="#api-Default-updateTask">updateTask</a>
@@ -864,16 +865,16 @@
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>TODO_api made by Sameri11</h1>
+            <h1>Swagger Sample</h1>
           </div>
           <div class="clearfix"></div>
         </div>
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: v.1</div>
+              <div class="app-desc">Version: v1</div>
             <hr>
-            <div>When enum choices (1 or 2 or 3) task_status: 1 - &quot;Not Started&quot;, 2 - &quot;In Progress&quot;, 3 - &quot;Done&quot;. /// task_priority: 1 - &quot;High Priority&quot;, 2 - &quot;Medium Priority&quot;, 3 - &quot;Low Priority&quot;</div>
+            <div>No description provided (generated by Swagger Codegen https://github.com/swagger-api/swagger-codegen)</div>
           </div>
         </div>
         <div id="sections">
@@ -891,7 +892,7 @@
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/v1/tasks/new/</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/v1/tasks/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -911,7 +912,7 @@
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-createTask-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//api/v1/tasks/new/"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//api/v1/tasks/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-createTask-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -927,7 +928,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        Body_3 body = ; // Body_3 | 
+        Body body = ; // Body | 
         try {
             apiInstance.createTask(body);
         } catch (ApiException e) {
@@ -945,7 +946,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Body_3 body = ; // Body_3 | 
+        Body body = ; // Body | 
         try {
             apiInstance.createTask(body);
         } catch (ApiException e) {
@@ -960,7 +961,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-createTask-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Body_3 *body = ; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">Body *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -974,9 +975,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-createTask-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1007,7 +1008,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var body = new Body_3(); // Body_3 |  (optional) 
+            var body = new Body(); // Body |  (optional) 
 
             try
             {
@@ -1028,7 +1029,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$body = ; // Body_3 | 
+$body = ; // Body | 
 
 try {
     $api_instance->createTask($body);
@@ -1044,7 +1045,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $body = WWW::SwaggerClient::Object::Body_3->new(); # Body_3 | 
+my $body = WWW::SwaggerClient::Object::Body->new(); # Body | 
 
 eval { 
     $api_instance->createTask(body => $body);
@@ -1063,7 +1064,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-body =  # Body_3 |  (optional)
+body =  # Body |  (optional)
 
 try: 
     api_instance.create_task(body=body)
@@ -1092,7 +1093,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body_3"
+        "$ref" : "#/components/schemas/body"
       }
     }
   }
@@ -1140,7 +1141,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -1150,21 +1151,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
@@ -1251,7 +1252,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        Body_1 body = ; // Body_1 | 
+        Body_4 body = ; // Body_4 | 
         try {
             apiInstance.createTokenObtainPair(body);
         } catch (ApiException e) {
@@ -1269,7 +1270,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Body_1 body = ; // Body_1 | 
+        Body_4 body = ; // Body_4 | 
         try {
             apiInstance.createTokenObtainPair(body);
         } catch (ApiException e) {
@@ -1284,7 +1285,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-createTokenObtainPair-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Body_1 *body = ; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">Body_4 *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1298,9 +1299,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-createTokenObtainPair-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1331,7 +1332,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var body = new Body_1(); // Body_1 |  (optional) 
+            var body = new Body_4(); // Body_4 |  (optional) 
 
             try
             {
@@ -1352,7 +1353,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$body = ; // Body_1 | 
+$body = ; // Body_4 | 
 
 try {
     $api_instance->createTokenObtainPair($body);
@@ -1368,7 +1369,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $body = WWW::SwaggerClient::Object::Body_1->new(); # Body_1 | 
+my $body = WWW::SwaggerClient::Object::Body_4->new(); # Body_4 | 
 
 eval { 
     $api_instance->createTokenObtainPair(body => $body);
@@ -1387,7 +1388,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-body =  # Body_1 |  (optional)
+body =  # Body_4 |  (optional)
 
 try: 
     api_instance.create_token_obtain_pair(body=body)
@@ -1416,7 +1417,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body_1"
+        "$ref" : "#/components/schemas/body_4"
       }
     }
   }
@@ -1550,7 +1551,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        Body_2 body = ; // Body_2 | 
+        Body_5 body = ; // Body_5 | 
         try {
             apiInstance.createTokenRefresh(body);
         } catch (ApiException e) {
@@ -1568,7 +1569,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Body_2 body = ; // Body_2 | 
+        Body_5 body = ; // Body_5 | 
         try {
             apiInstance.createTokenRefresh(body);
         } catch (ApiException e) {
@@ -1583,7 +1584,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-createTokenRefresh-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Body_2 *body = ; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">Body_5 *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1597,9 +1598,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-createTokenRefresh-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1630,7 +1631,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var body = new Body_2(); // Body_2 |  (optional) 
+            var body = new Body_5(); // Body_5 |  (optional) 
 
             try
             {
@@ -1651,7 +1652,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$body = ; // Body_2 | 
+$body = ; // Body_5 | 
 
 try {
     $api_instance->createTokenRefresh($body);
@@ -1667,7 +1668,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $body = WWW::SwaggerClient::Object::Body_2->new(); # Body_2 | 
+my $body = WWW::SwaggerClient::Object::Body_5->new(); # Body_5 | 
 
 eval { 
     $api_instance->createTokenRefresh(body => $body);
@@ -1686,7 +1687,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-body =  # Body_2 |  (optional)
+body =  # Body_5 |  (optional)
 
 try: 
     api_instance.create_token_refresh(body=body)
@@ -1715,7 +1716,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body_2"
+        "$ref" : "#/components/schemas/body_5"
       }
     }
   }
@@ -1849,7 +1850,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        Body body = ; // Body | 
+        Body_3 body = ; // Body_3 | 
         try {
             apiInstance.createUser(body);
         } catch (ApiException e) {
@@ -1867,7 +1868,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Body body = ; // Body | 
+        Body_3 body = ; // Body_3 | 
         try {
             apiInstance.createUser(body);
         } catch (ApiException e) {
@@ -1882,7 +1883,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-createUser-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Body *body = ; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">Body_3 *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1896,9 +1897,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-createUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1929,7 +1930,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var body = new Body(); // Body |  (optional) 
+            var body = new Body_3(); // Body_3 |  (optional) 
 
             try
             {
@@ -1950,7 +1951,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$body = ; // Body | 
+$body = ; // Body_3 | 
 
 try {
     $api_instance->createUser($body);
@@ -1966,7 +1967,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $body = WWW::SwaggerClient::Object::Body->new(); # Body | 
+my $body = WWW::SwaggerClient::Object::Body_3->new(); # Body_3 | 
 
 eval { 
     $api_instance->createUser(body => $body);
@@ -1985,7 +1986,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-body =  # Body |  (optional)
+body =  # Body_3 |  (optional)
 
 try: 
     api_instance.create_user(body=body)
@@ -2014,7 +2015,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body"
+        "$ref" : "#/components/schemas/body_3"
       }
     }
   }
@@ -2062,7 +2063,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "password", "username" ],
+        "required" : [ "username" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -2073,10 +2074,6 @@ except ApiException as e:
             "pattern" : "^[\\w.@+-]+$",
             "type" : "string",
             "description" : "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
-          },
-          "password" : {
-            "maxLength" : 128,
-            "type" : "string"
           },
           "email" : {
             "maxLength" : 254,
@@ -2136,7 +2133,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/v1/tasks/destroyed/{id}/</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/api/v1/tasks/{id}/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2156,7 +2153,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-destroyTask-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "//api/v1/tasks/destroyed/{id}/"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "//api/v1/tasks/{id}/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-destroyTask-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2219,9 +2216,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-destroyTask-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 var id = id_example; // {{String}} 
 
 var callback = function(error, data, response) {
@@ -2370,7 +2367,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -2380,21 +2377,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
@@ -2445,7 +2442,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/list/</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/admin/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2465,7 +2462,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-listTasks-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/list/"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/admin/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-listTasks-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2525,9 +2522,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-listTasks-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2644,7 +2641,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -2654,21 +2651,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
@@ -2707,10 +2704,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-listTasksAdmin">
-                      <article id="api-Default-listTasksAdmin-0" data-group="User" data-name="listTasksAdmin" data-version="0">
+                    <div id="api-Default-listTasks_1">
+                      <article id="api-Default-listTasks_1-0" data-group="User" data-name="listTasks_1" data-version="0">
                         <div class="pull-left">
-                          <h1>listTasksAdmin</h1>
+                          <h1>listTasks_1</h1>
                           <p></p>
                         </div>
                         <div class="pull-right"></div>
@@ -2719,29 +2716,29 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/list/admin/</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listTasksAdmin-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTasksAdmin-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTasksAdmin-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listTasksAdmin-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Default-listTasks_1-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-listTasks_1-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-listTasks_1-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-listTasks_1-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-listTasks_1-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-listTasks_1-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listTasksAdmin-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/list/admin/"</code></pre>
+                          <div class="tab-pane active" id="examples-Default-listTasks_1-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-listTasksAdmin-0-java">
+                          <div class="tab-pane" id="examples-Default-listTasks_1-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -2756,16 +2753,16 @@ public class DefaultApiExample {
         
         DefaultApi apiInstance = new DefaultApi();
         try {
-            apiInstance.listTasksAdmin();
+            apiInstance.listTasks_0();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTasksAdmin");
+            System.err.println("Exception when calling DefaultApi#listTasks_0");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-listTasksAdmin-0-android">
+                          <div class="tab-pane" id="examples-Default-listTasks_1-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -2773,23 +2770,23 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         try {
-            apiInstance.listTasksAdmin();
+            apiInstance.listTasks_0();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTasksAdmin");
+            System.err.println("Exception when calling DefaultApi#listTasks_0");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-listTasksAdmin-0-groovy">
+  <div class="tab-pane" id="examples-Default-listTasks_1-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-objc">
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-[apiInstance listTasksAdminWithCompletionHandler: 
+[apiInstance listTasks_1WithCompletionHandler: 
               ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -2798,10 +2795,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2809,14 +2806,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.listTasksAdmin(callback);
+api.listTasks_0(callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-listTasksAdmin-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-listTasks_1-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-csharp">
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -2825,7 +2822,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class listTasksAdminExample
+    public class listTasks_0Example
     {
         public void main()
         {
@@ -2834,11 +2831,11 @@ namespace Example
 
             try
             {
-                apiInstance.listTasksAdmin();
+                apiInstance.listTasks_0();
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.listTasksAdmin: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.listTasks_0: " + e.Message );
             }
         }
     }
@@ -2846,21 +2843,21 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-php">
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
 
 try {
-    $api_instance->listTasksAdmin();
+    $api_instance->listTasks_0();
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listTasksAdmin: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->listTasks_0: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-perl">
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
@@ -2868,14 +2865,14 @@ use WWW::SwaggerClient::DefaultApi;
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 
 eval { 
-    $api_instance->listTasksAdmin();
+    $api_instance->listTasks_0();
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->listTasksAdmin: $@\n";
+    warn "Exception when calling DefaultApi->listTasks_0: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-listTasksAdmin-0-python">
+                            <div class="tab-pane" id="examples-Default-listTasks_1-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -2886,9 +2883,9 @@ from pprint import pprint
 api_instance = swagger_client.DefaultApi()
 
 try: 
-    api_instance.list_tasks_admin()
+    api_instance.list_tasks_0()
 except ApiException as e:
-    print("Exception when calling DefaultApi->listTasksAdmin: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->listTasks_0: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -2904,21 +2901,21 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-listTasksAdmin-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-listTasks_1-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listTasksAdmin-200-schema">
-                                  <div id='responses-listTasksAdmin-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-listTasks_1-200-schema">
+                                  <div id='responses-listTasks_1-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -2928,21 +2925,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
@@ -2967,357 +2964,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listTasksAdmin-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listTasksAdmin-200-schema-200');
+                                        $('#responses-listTasks_1-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listTasks_1-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-listTasksAdmin-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-listTasksFiltered">
-                      <article id="api-Default-listTasksFiltered-0" data-group="User" data-name="listTasksFiltered" data-version="0">
-                        <div class="pull-left">
-                          <h1>listTasksFiltered</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/list/filter/{status}/{priority}/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-listTasksFiltered-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTasksFiltered-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-listTasksFiltered-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-listTasksFiltered-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-listTasksFiltered-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/list/filter/{status}/{priority}/"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-listTasksFiltered-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        String status = status_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-        String priority = priority_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-        try {
-            apiInstance.listTasksFiltered(status, priority);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTasksFiltered");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-listTasksFiltered-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        String status = status_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-        String priority = priority_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-        try {
-            apiInstance.listTasksFiltered(status, priority);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listTasksFiltered");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-listTasksFiltered-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *status = status_example; // Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-String *priority = priority_example; // Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance listTasksFilteredWith:status
-    priority:priority
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
-
-var api = new TodoApiMadeBySameri11.DefaultApi()
-var status = status_example; // {{String}} Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-var priority = priority_example; // {{String}} Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.listTasksFiltered(status, priority, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-listTasksFiltered-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class listTasksFilteredExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var status = status_example;  // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-            var priority = priority_example;  // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-            try
-            {
-                apiInstance.listTasksFiltered(status, priority);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.listTasksFiltered: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$status = status_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-$priority = priority_example; // String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-try {
-    $api_instance->listTasksFiltered($status, $priority);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->listTasksFiltered: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $status = status_example; # String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-my $priority = priority_example; # String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-eval { 
-    $api_instance->listTasksFiltered(status => $status, priority => $priority);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->listTasksFiltered: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-listTasksFiltered-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-status = status_example # String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: "Not Started", 2: "In Progress", 3: "Done"
-priority = priority_example # String | Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: "High Priority", 2: "Medium Priority", 3: "Low Priority"
-
-try: 
-    api_instance.list_tasks_filtered(status, priority)
-except ApiException as e:
-    print("Exception when calling DefaultApi->listTasksFiltered: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">status*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_listTasksFiltered_status">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      String
-                                                  </span>
-                                  
-                                                      <div class="inner description">
-                                                          Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_status. 1: &quot;Not Started&quot;, 2: &quot;In Progress&quot;, 3: &quot;Done&quot;
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                                  <tr><td style="width:150px;">priority*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_listTasksFiltered_priority">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      String
-                                                  </span>
-                                  
-                                                      <div class="inner description">
-                                                          Required. Could be integers: 0, 1, 2, 3, 4. 0 if not filtered by task_priority. 1: &quot;High Priority&quot;, 2: &quot;Medium Priority&quot;, 3: &quot;Low Priority&quot;
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 -  </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-listTasksFiltered-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-listTasksFiltered-200-schema">
-                                  <div id='responses-listTasksFiltered-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "required" : [ "task_name" ],
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "readOnly" : true
-          },
-          "user_id" : {
-            "type" : "string",
-            "readOnly" : true
-          },
-          "task_name" : {
-            "maxLength" : 100,
-            "type" : "string"
-          },
-          "task_description" : {
-            "maxLength" : 100,
-            "type" : "string"
-          },
-          "task_priority" : {
-            "maximum" : 2147483647,
-            "minimum" : -2147483648,
-            "type" : "number",
-            "enum" : [ 1, 2, 3 ]
-          },
-          "task_status" : {
-            "maximum" : 2147483647,
-            "minimum" : -2147483648,
-            "type" : "number",
-            "enum" : [ 1, 2, 3 ]
-          }
-        },
-        "x-content-type" : "application/json"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-listTasksFiltered-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-listTasksFiltered-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-listTasksFiltered-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-listTasks_1-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -3336,7 +2990,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/api/v1/tasks/updated/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/api/v1/tasks/{id}/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3356,7 +3010,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-partialUpdateTask-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//api/v1/tasks/updated/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//api/v1/tasks/{id}/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-partialUpdateTask-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3373,7 +3027,7 @@ public class DefaultApiExample {
         
         DefaultApi apiInstance = new DefaultApi();
         String id = id_example; // String | 
-        Body_5 body = ; // Body_5 | 
+        Body_2 body = ; // Body_2 | 
         try {
             apiInstance.partialUpdateTask(id, body);
         } catch (ApiException e) {
@@ -3392,7 +3046,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         String id = id_example; // String | 
-        Body_5 body = ; // Body_5 | 
+        Body_2 body = ; // Body_2 | 
         try {
             apiInstance.partialUpdateTask(id, body);
         } catch (ApiException e) {
@@ -3408,7 +3062,7 @@ public class DefaultApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Default-partialUpdateTask-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *id = id_example; // 
-Body_5 *body = ; //  (optional)
+Body_2 *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -3423,9 +3077,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-partialUpdateTask-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 var id = id_example; // {{String}} 
 
 var callback = function(error, data, response) {
@@ -3458,7 +3112,7 @@ namespace Example
 
             var apiInstance = new DefaultApi();
             var id = id_example;  // String | 
-            var body = new Body_5(); // Body_5 |  (optional) 
+            var body = new Body_2(); // Body_2 |  (optional) 
 
             try
             {
@@ -3480,7 +3134,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $id = id_example; // String | 
-$body = ; // Body_5 | 
+$body = ; // Body_2 | 
 
 try {
     $api_instance->partialUpdateTask($id, $body);
@@ -3497,7 +3151,7 @@ use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $id = id_example; # String | 
-my $body = WWW::SwaggerClient::Object::Body_5->new(); # Body_5 | 
+my $body = WWW::SwaggerClient::Object::Body_2->new(); # Body_2 | 
 
 eval { 
     $api_instance->partialUpdateTask(id => $id, body => $body);
@@ -3517,7 +3171,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
 id = id_example # String | 
-body =  # Body_5 |  (optional)
+body =  # Body_2 |  (optional)
 
 try: 
     api_instance.partial_update_task(id, body=body)
@@ -3572,7 +3226,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body_5"
+        "$ref" : "#/components/schemas/body_2"
       }
     }
   }
@@ -3620,7 +3274,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -3630,21 +3284,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
@@ -3683,6 +3337,315 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Default-retrieveTask">
+                      <article id="api-Default-retrieveTask-0" data-group="User" data-name="retrieveTask" data-version="0">
+                        <div class="pull-left">
+                          <h1>retrieveTask</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/tasks/{id}/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-retrieveTask-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-retrieveTask-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-retrieveTask-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-retrieveTask-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-retrieveTask-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-retrieveTask-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-retrieveTask-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "//api/v1/tasks/{id}/"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-retrieveTask-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        String id = id_example; // String | 
+        try {
+            apiInstance.retrieveTask(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#retrieveTask");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-retrieveTask-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        String id = id_example; // String | 
+        try {
+            apiInstance.retrieveTask(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#retrieveTask");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-retrieveTask-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *id = id_example; // 
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance retrieveTaskWith:id
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
+
+var api = new SwaggerJsClient.DefaultApi()
+var id = id_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.retrieveTask(id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-retrieveTask-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class retrieveTaskExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+            var id = id_example;  // String | 
+
+            try
+            {
+                apiInstance.retrieveTask(id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.retrieveTask: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$id = id_example; // String | 
+
+try {
+    $api_instance->retrieveTask($id);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->retrieveTask: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $id = id_example; # String | 
+
+eval { 
+    $api_instance->retrieveTask(id => $id);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->retrieveTask: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-retrieveTask-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+id = id_example # String | 
+
+try: 
+    api_instance.retrieve_task(id)
+except ApiException as e:
+    print("Exception when calling DefaultApi->retrieveTask: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_retrieveTask_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      String
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 -  </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-retrieveTask-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-retrieveTask-200-schema">
+                                  <div id='responses-retrieveTask-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "required" : [ "title" ],
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "readOnly" : true
+          },
+          "user_id" : {
+            "type" : "string",
+            "readOnly" : true
+          },
+          "title" : {
+            "maxLength" : 100,
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 100,
+            "type" : "string"
+          },
+          "priority" : {
+            "maximum" : 2147483647,
+            "minimum" : -2147483648,
+            "type" : "number",
+            "enum" : [ 1, 2, 3 ]
+          },
+          "status" : {
+            "maximum" : 2147483647,
+            "minimum" : -2147483648,
+            "type" : "number",
+            "enum" : [ 1, 2, 3 ]
+          }
+        },
+        "x-content-type" : "application/json"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-retrieveTask-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-retrieveTask-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-retrieveTask-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-updateTask">
                       <article id="api-Default-updateTask-0" data-group="User" data-name="updateTask" data-version="0">
                         <div class="pull-left">
@@ -3695,7 +3658,7 @@ except ApiException as e:
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/v1/tasks/updated/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/v1/tasks/{id}/</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3715,7 +3678,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-updateTask-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "//api/v1/tasks/updated/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "//api/v1/tasks/{id}/"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-updateTask-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3732,7 +3695,7 @@ public class DefaultApiExample {
         
         DefaultApi apiInstance = new DefaultApi();
         String id = id_example; // String | 
-        Body_4 body = ; // Body_4 | 
+        Body_1 body = ; // Body_1 | 
         try {
             apiInstance.updateTask(id, body);
         } catch (ApiException e) {
@@ -3751,7 +3714,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         String id = id_example; // String | 
-        Body_4 body = ; // Body_4 | 
+        Body_1 body = ; // Body_1 | 
         try {
             apiInstance.updateTask(id, body);
         } catch (ApiException e) {
@@ -3767,7 +3730,7 @@ public class DefaultApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Default-updateTask-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *id = id_example; // 
-Body_4 *body = ; //  (optional)
+Body_1 *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -3782,9 +3745,9 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-Default-updateTask-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TodoApiMadeBySameri11 = require('todo_api_made_by_sameri11');
+                              <pre class="prettyprint"><code class="language-js">var SwaggerJsClient = require('swagger-js-client');
 
-var api = new TodoApiMadeBySameri11.DefaultApi()
+var api = new SwaggerJsClient.DefaultApi()
 var id = id_example; // {{String}} 
 
 var callback = function(error, data, response) {
@@ -3817,7 +3780,7 @@ namespace Example
 
             var apiInstance = new DefaultApi();
             var id = id_example;  // String | 
-            var body = new Body_4(); // Body_4 |  (optional) 
+            var body = new Body_1(); // Body_1 |  (optional) 
 
             try
             {
@@ -3839,7 +3802,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $id = id_example; // String | 
-$body = ; // Body_4 | 
+$body = ; // Body_1 | 
 
 try {
     $api_instance->updateTask($id, $body);
@@ -3856,7 +3819,7 @@ use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $id = id_example; # String | 
-my $body = WWW::SwaggerClient::Object::Body_4->new(); # Body_4 | 
+my $body = WWW::SwaggerClient::Object::Body_1->new(); # Body_1 | 
 
 eval { 
     $api_instance->updateTask(id => $id, body => $body);
@@ -3876,7 +3839,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
 id = id_example # String | 
-body =  # Body_4 |  (optional)
+body =  # Body_1 |  (optional)
 
 try: 
     api_instance.update_task(id, body=body)
@@ -3931,7 +3894,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/body_4"
+        "$ref" : "#/components/schemas/body_1"
       }
     }
   }
@@ -3979,7 +3942,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "required" : [ "task_name" ],
+        "required" : [ "title" ],
         "properties" : {
           "id" : {
             "type" : "integer",
@@ -3989,21 +3952,21 @@ except ApiException as e:
             "type" : "string",
             "readOnly" : true
           },
-          "task_name" : {
+          "title" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_description" : {
+          "description" : {
             "maxLength" : 100,
             "type" : "string"
           },
-          "task_priority" : {
+          "priority" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
             "enum" : [ 1, 2, 3 ]
           },
-          "task_status" : {
+          "status" : {
             "maximum" : 2147483647,
             "minimum" : -2147483648,
             "type" : "number",
