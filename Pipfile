@@ -20,6 +20,7 @@ whitenoise = "*"
 drfdocs = "*"
 pyyaml = "*"
 uritemplate = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7"

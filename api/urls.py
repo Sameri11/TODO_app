@@ -1,6 +1,8 @@
 from django.urls import path, re_path
 from .views import (CreateUserView, CreateTaskView, UpdateTaskView,
-                    TaskListView, AdminTaskListView, DeleteTaskView)
+                    TaskListView, AdminTaskListView, DeleteTaskView,
+                    TasksViewSet)
+from rest_framework import routers
 from rest_framework_simplejwt.views import (
     TokenObtainPairView, TokenRefreshView
 )
@@ -18,3 +20,6 @@ urlpatterns = [
     path('tasks/destroyed/<int:pk>/', DeleteTaskView.as_view(), 
          name='destroyed_task')
 ]
+router = routers.SimpleRouter()
+router.register(r'task', TasksViewSet, basename='tasks')
+urlpatterns += router.urls
