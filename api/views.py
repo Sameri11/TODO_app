@@ -4,7 +4,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth.models import User
-from rest_framework.generics import (CreateAPIView, UpdateAPIView, ListAPIView, 
+from rest_framework.generics import (CreateAPIView, UpdateAPIView, ListAPIView,
                                      DestroyAPIView)
 from .serializers import UserSerializer, TaskSerializer
 from todos.models import Tasks
