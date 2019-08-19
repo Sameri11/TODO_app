@@ -32,24 +32,22 @@ See documentation for details on making requests!
 
 This part needs upgrade, but it works
 
-    url: /api/v1/tasks/list/filter/(status)/(priority)
+    url: /api/v1/tasks/?status={int: 1 or 2 or 3}&priority={int: 1 or 2 or 3}
 
     Priority:
-    0 - Does not filter by this criteria
     1 - "High Priority"
     2 - "Medium Priority"
     3 - "Low Priority"
 
     Status:
-    0 - Does not filter by this criteria
     1 - "Not Started"
     2 - "In Progress"
     3 - "Done"
 
 
     Examples:
-    - /api/v1/tasks/filter/3/3/
+    - /api/v1/tasks/?status=3&priority=3
     Shows tasks, which have priority 3 ("High priority") and status 3 ("Done")
 
-    - /api/v1/tasks/filter/0/3/
+    - /api/v1/tasks/?priority=3
     Shows tasks which have priority 3 ("High Priority")
