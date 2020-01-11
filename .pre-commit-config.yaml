@@ -1,6 +1,7 @@
+fail_fast: true
+repos:
 -   repo: https://gitlab.com/pycqa/flake8
     rev: ''  # pick a git hash / tag to point to
-    fail_fast: true
     hooks:
     -   id: flake8
         exclude: /__init__\.py/g
