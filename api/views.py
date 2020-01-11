@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import permissions, viewsets
 from rest_framework.generics import CreateAPIView, ListAPIView
-
 from todos.models import Tasks
 
 from .serializers import TaskSerializer, UserSerializer

@@ -4,4 +4,38 @@ repos:
     rev: ''  # pick a git hash / tag to point to
     hooks:
     -   id: flake8
-        exclude: /__init__\.py/g
+        exclude: (migrations/|settings|manage)
+        additional_dependencies: [
+            pep8,
+            pep8-naming,
+            flake8-polyfill,
+            flake8-string-format,
+            flake8-rst-docstrings,
+            flake8-quotes,
+            flake8-print,
+            flake8-pep3101,
+            flake8-isort,
+            flake8-logging-format,
+            flake8-executable,
+            flake8-eradicate,
+            flake8-docstrings,
+            flake8-django,
+            flake8-debugger,
+            flake8-comprehensions,
+            flake8-commas,
+            flake8-coding,
+            flake8-builtins, 
+            flake8-bugbear,
+            flake8-broken-line,
+            flake8-bandit, 
+        ]
+        args: [
+            --exclude=manage.py,
+            --exclude=migrations,
+            --exclude=__init__.py,
+
+        ]
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: ''  # Use the revision sha / tag you want to point at
+    hooks:
+        -   id: isort
