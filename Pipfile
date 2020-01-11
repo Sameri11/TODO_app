@@ -6,7 +6,8 @@ verify_ssl = true
 [dev-packages]
 pep8 = "*"
 tblib = "*"
-flake8 = "*"
+flake8-django = "*"
+isort = "*"
 
 [packages]
 django = "~=3.0"

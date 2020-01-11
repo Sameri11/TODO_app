@@ -1,10 +1,9 @@
-from django.test import TestCase
+from django.contrib.auth.models import User
 from django.urls import reverse
 from rest_framework import status
-from rest_framework.test import APIRequestFactory, APITestCase, APIClient
-from rest_framework.parsers import JSONParser
-from django.contrib.auth.models import User
+from rest_framework.test import APITestCase
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from todos.models import Tasks
 
 
@@ -26,11 +25,11 @@ class UserTestCase(APITestCase):
     def test_create_account(self):
         url = reverse('register')
         data = {
-            "username": "Fil",
-            "email": "fil@fil.com",
-            "password": "1234567898",
-            "first_name": "Filly",
-            "last_name": "Willy"
+            'username': 'Fil',
+            'email': 'fil@fil.com',
+            'password': '1234567898',
+            'first_name': 'Filly',
+            'last_name': 'Willy',
         }
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -41,8 +40,8 @@ class TokenTestCase(APITestCase):
         User.objects.create_user('skijl', 'adf@ru.ru', '123456')
         url = reverse('token_obtain_pair')
         data = {
-            "username": "skijl",
-            "password": "123456"
+            'username': 'skijl',
+            'password': '123456',
         }
         response = self.client.post(url, data, format='json')
         json_response = response.data
@@ -76,7 +75,7 @@ class TasksViewSetTestCase(APITestCase):
         user = make_user(self, 'skim', '123456')
         token = get_tokens_for_user(self, user)['access']
         data = {
-            "title": "New Task"
+            'title': 'New Task',
         }
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         response = self.client.post(url, data, format='json')
@@ -123,7 +122,7 @@ class TasksViewSetTestCase(APITestCase):
         pk = Tasks.objects.get(title='TODO').pk
         url = reverse('tasks-detail', args=[pk])
         data = {
-            "description": "Wow!"
+            'description': 'Wow!',
         }
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         response = self.client.patch(url, data, format='json')
@@ -137,10 +136,10 @@ class TasksViewSetTestCase(APITestCase):
         pk = Tasks.objects.get(title='TODO').pk
         url = reverse('tasks-detail', args=[pk])
         data = {
-            "title": 'New TODO',
-            "description": "Wow!",
-            "status": 3,
-            "priority": 3
+            'title': 'New TODO',
+            'description': 'Wow!',
+            'status': 3,
+            'priority': 3,
         }
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         response = self.client.put(url, data, format='json')

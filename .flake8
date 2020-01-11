@@ -1,0 +1,15 @@
+[flake8]
+ignore = 
+    C101,
+    RST,
+    D,
+    D100,
+exclude = 
+    .git/,
+    __init__.py,
+    migrations,
+    manage.py,
+    settings.py
+
+[isort]
+show_traceback = True

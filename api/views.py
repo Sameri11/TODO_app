@@ -1,13 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from rest_framework import permissions, viewsets
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth.models import User
-from rest_framework.generics import (CreateAPIView, UpdateAPIView, ListAPIView,
-                                     DestroyAPIView)
-from .serializers import UserSerializer, TaskSerializer
+from rest_framework import permissions, viewsets
+from rest_framework.generics import CreateAPIView, ListAPIView
+
 from todos.models import Tasks
+
+from .serializers import TaskSerializer, UserSerializer
 
 
 class CreateUserView(CreateAPIView):
@@ -34,7 +31,7 @@ class TasksViewSet(viewsets.ModelViewSet):
         priority = self.request.query_params.get('priority', None)
         if status is not None and priority is not None:
             queryset = queryset.filter(status=status).filter(
-                       priority=priority)
+                priority=priority)
         elif status is not None:
             queryset = queryset.filter(status=status)
         elif priority is not None:

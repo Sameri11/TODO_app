@@ -1,5 +1,6 @@
-from rest_framework import serializers
 from django.contrib.auth.models import User
+from rest_framework import serializers
+
 from todos.models import Tasks
 
 
@@ -9,11 +10,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'password', 'email', 'first_name',
                   'last_name')
         extra_kwargs = {
-            "email": {"required": False},
-            "first_name": {"required": False},
-            "last_name": {"required": False},
-            "id": {"read_only": True},
-            "password": {"write_only": True}
+            'email': {'required': False},
+            'first_name': {'required': False},
+            'last_name': {'required': False},
+            'id': {'read_only': True},
+            'password': {'write_only': True},
         }
 
     def create(self, validated_data):
@@ -30,11 +31,11 @@ class TaskSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'priority',
-            'status'
+            'status',
         ]
         extra_kwargs = {
-            "description": {"required": False},
-            "priority": {"required": False},
-            "status": {"required": False},
-            "id": {"required": False},
+            'description': {'required': False},
+            'priority': {'required': False},
+            'status': {'required': False},
+            'id': {'required': False},
         }

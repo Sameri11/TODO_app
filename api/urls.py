@@ -1,9 +1,10 @@
-from django.urls import path, re_path
-from .views import CreateUserView, AdminTaskListView, TasksViewSet
+from django.urls import path
 from rest_framework import routers
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView, TokenRefreshView
-)
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            TokenRefreshView)
+
+from .views import AdminTaskListView, CreateUserView, TasksViewSet
+
 urlpatterns = [
     path('register/', CreateUserView.as_view(), name='register'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
