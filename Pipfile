@@ -8,7 +8,7 @@ pep8 = "*"
 tblib = "*"
 
 [packages]
-django = "==2.2.4"
+django = "~=3.0"
 psycopg2-binary = "==2.8.3"
 psycopg2 = "==2.8.3"
 django-rest-framework = "*"
@@ -23,4 +23,4 @@ uritemplate = "*"
 django-filter = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
