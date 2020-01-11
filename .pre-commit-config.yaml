@@ -1,5 +1,10 @@
 fail_fast: true
 repos:
+-   repo: https://github.com/timothycrosley/isort
+    rev: 'develop'  # Use the revision sha / tag you want to point at
+    hooks:
+    -   id: isort
+        args: [--profile=django]
 -   repo: https://gitlab.com/pycqa/flake8
     rev: ''  # pick a git hash / tag to point to
     hooks:
@@ -14,7 +19,6 @@ repos:
             flake8-quotes,
             flake8-print,
             flake8-pep3101,
-            flake8-isort,
             flake8-logging-format,
             flake8-executable,
             flake8-eradicate,
@@ -29,13 +33,3 @@ repos:
             flake8-broken-line,
             flake8-bandit, 
         ]
-        args: [
-            --exclude=manage.py,
-            --exclude=migrations,
-            --exclude=__init__.py,
-
-        ]
--   repo: https://github.com/pre-commit/mirrors-isort
-    rev: ''  # Use the revision sha / tag you want to point at
-    hooks:
-        -   id: isort
