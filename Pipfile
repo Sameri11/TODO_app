@@ -8,6 +8,7 @@ pep8 = "*"
 tblib = "*"
 flake8-django = "*"
 isort = "*"
+pre-commit = "*"
 
 [packages]
 django = "~=3.0"
