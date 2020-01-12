@@ -28,12 +28,9 @@ class TasksViewSet(viewsets.ModelViewSet):
         queryset = Tasks.objects.filter(user=self.request.user)
         status = self.request.query_params.get('status', None)
         priority = self.request.query_params.get('priority', None)
-        if status is not None and priority is not None:
-            queryset = queryset.filter(status=status).filter(
-                priority=priority)
-        elif status is not None:
+        if status is not None:
             queryset = queryset.filter(status=status)
-        elif priority is not None:
+        if priority is not None:
             queryset = queryset.filter(priority=priority)
 
         return queryset

@@ -33,6 +33,15 @@ class UserTestCase(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+    def test_create_account_only_username_and_password(self):
+        url = reverse('register')
+        data = {
+            'username': 'Fil',
+            'password': '1234567898',
+        }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
 
 class TokenTestCase(APITestCase):
     def test_get_token(self):
@@ -80,7 +89,7 @@ class TasksViewSetTestCase(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    def test_retrieve_view(self):
+    def test_retrieve_view_correct_user(self):
         user = make_user(self, 'skim', '123456')
         token = get_tokens_for_user(self, user)['access']
         Tasks.objects.create(user=user, title='TODO')
@@ -89,6 +98,19 @@ class TasksViewSetTestCase(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_retrieve_view_incorrect_user(self):
+        user = make_user(self, 'skim', '123456')
+        user2 = make_user(self, 'wrong', '123456')
+        token = get_tokens_for_user(self, user)['access']
+        Tasks.objects.create(user=user, title='TODO')
+        Tasks.objects.create(user=user2, title='TODO')
+        pk_for_wrong_retrieve = Tasks.objects.get(title='TODO', user=user2).pk
+        url_for_wrong_retrieve = reverse('tasks-detail',
+                                         args=[pk_for_wrong_retrieve])
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer {0}'.format(token))
+        response = self.client.get(url_for_wrong_retrieve)
+        self.assertNotEqual(response.status_code, status.HTTP_200_OK)
 
     def test_destroy_view(self):
         user = make_user(self, 'skim', '123456')
