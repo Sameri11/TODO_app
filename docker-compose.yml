@@ -12,7 +12,7 @@ services:
       - pgdata:/var/lib/postgresql/data/
   web:
     image: "${DOCKER_REGISTRY_IMG}"
-    command: bash -c "pipenv run python manage.py test --parallel && pipenv run python manage.py makemigrations && pipenv run python manage.py migrate && pipenv run python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "pipenv run python manage.py test --parallel"
     volumes:
       - .:/code
     ports:
