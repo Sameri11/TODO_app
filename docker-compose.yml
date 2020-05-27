@@ -1,11 +1,16 @@
 version: '3'
 
+volumes:
+  pgdata:
+
 services:
   db:
     image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
   web:
-    env_file: 
-      - ./.env
     image: "${DOCKER_REGISTRY_IMG}"
     command: bash -c "pipenv run python manage.py test --parallel && pipenv run python manage.py makemigrations && pipenv run python manage.py migrate && pipenv run python manage.py runserver 0.0.0.0:8000"
     volumes:
