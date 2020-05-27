@@ -19,7 +19,7 @@ pipeline {
         }
         stage('run') {
             steps {
-                sh 'docker-compose up'
+                sh 'docker-compose up --exit-code-from web'
             }
         }
     }
