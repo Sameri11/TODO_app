@@ -17,5 +17,10 @@ pipeline {
                 sh "docker push ${DOCKER_REGISTRY_IMG}"
             }
         }
+        stage('run') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
     }
 }
